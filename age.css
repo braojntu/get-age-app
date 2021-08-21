@@ -52,12 +52,11 @@ font-family: 'Arial Narrow Bold', sans-serif;
     grid-row-gap: 10px;
     margin: 50px 25px 0px 25px;
     justify-content: center;
-    font-size: ;  
 }
 
 .elapsed-time {
     width: 300px;
-    height: 225px;
+    height: 275px;
     background-color:white;
     padding: 5px 0px 0px 25px;
     border-radius: 2px;
@@ -73,7 +72,7 @@ font-family: 'Arial Narrow Bold', sans-serif;
 
 .age {
     width: 300px;
-    height: 225px;
+    height: 275px;
     background-color: white;
     padding: 5px 10px 0px 25px;
     border-radius: 2px; 
@@ -90,7 +89,7 @@ font-family: 'Arial Narrow Bold', sans-serif;
 #zodiac {
 
     width: 400px;
-    height: 225px;
+    height: 275px;
     background-color: white;
     padding: 5px 0px 0px 10px;
     border-radius: 2px; 

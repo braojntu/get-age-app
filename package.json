@@ -1,0 +1,14 @@
+{
+    "name": "calculate-age",
+    "version": "1.0.0",
+    "description": "Calulates Age and Show Zodaic sign",
+    "main": "index.html",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "bhaskara369",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
