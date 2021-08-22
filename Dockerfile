@@ -11,17 +11,15 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-# For non production builds use below
+# A. For non production builds use below
 # RUN npm install 
 
-# If you are building your code for production use below
+# B. If you are building your code for production use below
 # Imp Note: cipm can only install packages with 
 # an existing package-lock.json or npm-shrinkwrap.json 
 # RUN npm ci --only=production
 
-# If you add a package-lock.json, speed your build by switching to 'npm ci'.
-# RUN npm ci --only=production
-RUN npm ci --only=production
+RUN npm install
 
 # bundle local code to the container image.
 COPY . ./
