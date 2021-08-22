@@ -33,6 +33,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-//app.listen(PORT, HOST);
-app.listen(PORT);
-console.log(`Bhaskara Express App server Running on ${PORT}`);
+//Listen on specified port
+app.listen(PORT, () => {
+  console.log(`Bhaskara Express App server Running on: ${PORT}`)
+})
