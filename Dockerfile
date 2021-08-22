@@ -10,9 +10,13 @@ WORKDIR /usr/src/app
 # Copying this first prevents re-running npm install on every code change.
 COPY package*.json ./
 
-# Install production dependencies.
-# RUN npm install (for non production builds)
-# If you are building your code for production
+# Install dependencies
+# For non production builds use below
+# RUN npm install 
+
+# If you are building your code for production use below
+# Imp Note: cipm can only install packages with 
+# an existing package-lock.json or npm-shrinkwrap.json 
 # RUN npm ci --only=production
 
 # If you add a package-lock.json, speed your build by switching to 'npm ci'.
