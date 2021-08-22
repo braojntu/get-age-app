@@ -2,7 +2,7 @@
     "name": "calculate-age",
     "version": "1.0.0",
     "description": "Calulates Age and Show Zodaic sign",
-    "main": "index.html",
+    "main": "server.js",
     "scripts": {
         "start": "node server.js"
     },

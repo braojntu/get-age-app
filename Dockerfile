@@ -3,13 +3,7 @@
 FROM node:14-slim
 
 # Create and change to the app directory.
-WORKDIR /app
-
-# Copy local code to the container image.
-ADD . /app
-
-ENV PORT 8080
-ENV HOST 0.0.0.0
+WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
 # A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
@@ -17,9 +11,18 @@ ENV HOST 0.0.0.0
 COPY package*.json ./
 
 # Install production dependencies.
+# RUN npm install (for non production builds)
+# If you are building your code for production
+# RUN npm ci --only=production
+
 # If you add a package-lock.json, speed your build by switching to 'npm ci'.
 # RUN npm ci --only=production
-RUN npm install --only=production
+RUN npm ci --only=production
+
+# bundle local code to the container image.
+COPY . ./
+
+EXPOSE 8080
 
 # Run the web service on container startup.
-CMD [ "node", "server.js" ]
+CMD ["npm", "start"]
