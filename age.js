@@ -5,62 +5,61 @@ container.setAttribute('class', 'container');
 //A1 Application Heading
 var para = document.createElement('p');
 para.setAttribute('class', 'heading');
-para.innerHTML = 'Enter your date of Birth';
+para.innerHTML = 'SHOW MY AGE';
 
-//Attach header to container
+//A1.1 Attach header to container
 container.append(para);
 
-//A2. Results: Container
-var results_container = document.createElement('div');
-results_container.setAttribute('class', 'result');
-
-//A2.1. Results: Elapsed Time
-var display_elapsed = document.createElement('div');
-display_elapsed.setAttribute('class', 'elapsed-time');
-
-//A2.2. Results: Age
-var display_age = document.createElement('div');
-display_age.setAttribute('class', 'age');
-
-//A2.3. Results: Zodiac
-var zodaic_div = document.createElement('div');
-zodaic_div.setAttribute('id', 'zodiac');
-
-var zodaic_sign = document.createElement('div');
-zodaic_sign.setAttribute('id', 'photo');
-
-var zodaic_char = document.createElement('p');
-zodaic_char.setAttribute('id', 'characteristic');
-
-//A3. User Input Container
+//A2 User Input Container
 var inputcont = document.createElement('div');
 inputcont.setAttribute('class', 'container-input');
 
-//A3.1. User Input : Date of Birth
+//A2.1 User Input : Date of Birth
 var date_ele = document.createElement('input');
 date_ele.setAttribute('type', 'datetime-local');
 date_ele.setAttribute('id', 'dob');
 inputcont.appendChild(date_ele)
 
-//A3.2 User Input : Button to click
+//A2.2 User Input : Button to click
 var button = document.createElement('button');
 button.setAttribute('type', 'button');
 button.setAttribute('id', 'btn');
-button.setAttribute('onclick', 'date_calc(); zodiac();');
 button.innerHTML = "Age";
 inputcont.appendChild(button);
 
-//Attach input to TOP container
+//A2.3 Attach input to TOP container
 container.append(inputcont);
 
+//A3. Results: Container
+var result_container = document.createElement('div');
+result_container.setAttribute('class', 'result-cont');
 
-//Attach results to TOP container
-//display_elapsed & displayed_age has been attached to results_container inside the function
-//Attached results_container to TOP container
-container.append(results_container);
+//A3.1. Results: Elapsed Time block
+var display_elapsed = document.createElement('div');
+display_elapsed.setAttribute('class', 'elapsed-time');
+
+//A3.2. Results: Age dispaly block
+var display_age = document.createElement('div');
+display_age.setAttribute('class', 'age');
+
+//A3.3. Results: Zodiac div creation
+var zodaic_div = document.createElement('div');
+zodaic_div.setAttribute('id', 'zodiac');
+var zodaic_sign = document.createElement('div');
+zodaic_sign.setAttribute('id', 'photo');
+var zodaic_char = document.createElement('p');
+zodaic_char.setAttribute('id', 'characteristic');
+
+//A4. Trigger date_calc() function on click of Age button
+button.setAttribute('onclick', 'date_calc();');
+
+//Attach result container  to top container
+container.append(result_container);
 
 //Attach TOP container to document body
 document.body.append(container);
+console.log(container);
+
 
 function date_calc() {
     var input = document.getElementById('dob').value
@@ -141,8 +140,11 @@ function date_calc() {
     else {
         display_elapsed.innerHTML = "Input date is not valid";
     }
-    results_container.appendChild(display_elapsed);
-    results_container.appendChild(display_age);
+
+    result_container.appendChild(display_elapsed);
+    result_container.appendChild(display_age);
+    zodiac();
+    //console.log(results_container);
 }
 
 
@@ -232,6 +234,6 @@ function zodiac() {
     //results_container.appendChild(msg);
     zodaic_div.append(zodaic_sign);
     zodaic_div.append(zodaic_char);
-    results_container.append(zodaic_div);
-    //console.log(results_container);
+    result_container.append(zodaic_div);
+    //console.log(result_container);
 }

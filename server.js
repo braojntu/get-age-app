@@ -17,7 +17,7 @@ const port = process.env.PORT || 8080;
 //app.use("/styles", express.static(__dirname + '/public/stylesheets'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 //app.use("/images", express.static(__dirname + '/public/images'));
-
+app.use('/', router);
 app.use(express.static(__dirname + '/index.html'));
 app.use(express.static(__dirname + '/age.css'));
 app.use(express.static(__dirname + '/age.js'));
