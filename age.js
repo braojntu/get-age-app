@@ -51,102 +51,14 @@ var zodaic_char = document.createElement('p');
 zodaic_char.setAttribute('id', 'characteristic');
 
 //A4. Trigger date_calc() function on click of Age button
-button.setAttribute('onclick', 'date_calc();');
+button.setAttribute('onclick', 'date_calc();zodiac();');
 
-//Attach result container  to top container
+//A5. Attach result container  to top container
 container.append(result_container);
 
-//Attach TOP container to document body
+//A6. Attach TOP container to document body
 document.body.append(container);
 console.log(container);
-
-
-function date_calc() {
-    var input = document.getElementById('dob').value
-    //console.log(input);
-    //console.log(Date.parse(input));
-
-    if (Date.parse(input)) {
-        var input_date = new Date(input);
-        var current_date = new Date();
-        var milli_diff = current_date.getTime() - input_date.getTime();
-        var sec_diff = Math.floor(milli_diff / 1000);
-        var min_diff = Math.floor(sec_diff / 60);
-        var hour_diff = Math.floor(min_diff / 60);
-        var day_diff = Math.floor(hour_diff / 24);
-        var month_diff = (current_date.getFullYear() - input_date.getFullYear()) * 12 + current_date.getMonth() - input_date.getMonth();
-        var year_diff = current_date.getFullYear() - input_date.getFullYear();
-
-        var milli_diff_e = current_date.getMilliseconds() - input_date.getMilliseconds();
-        var sec_diff_e = current_date.getSeconds() - input_date.getSeconds();
-        var min_diff_e = negative_min_diff();
-        var hour_diff_e = negative_hour_diff();
-        var day_diff_e = current_date.getDate() - input_date.getDate();
-        var month_diff_e = current_date.getMonth() - input_date.getMonth();
-        var year_diff_e = current_date.getFullYear() - input_date.getFullYear();
-
-        function negative_hour_diff() {
-            if ((current_date.getHours() - input_date.getHours()) < 0) {
-                var new_hour_diff = 24 + (current_date.getHours() - input_date.getHours())
-                return new_hour_diff
-            }
-
-            else {
-                var new_hour_diff = (current_date.getHours() - input_date.getHours())
-                return new_hour_diff
-            }
-        }
-
-        function negative_min_diff() {
-            if ((current_date.getMinutes() - input_date.getMinutes()) < 0) {
-                var new_min_diff = 60 + (current_date.getMinutes() - input_date.getMinutes())
-                return new_min_diff
-            }
-
-            else {
-                var new_min_diff = (current_date.getMinutes() - input_date.getMinutes())
-                return new_min_diff
-            }
-        }
-
-        /*console.log(input_date);
-        console.log(current_date);
-        console.log(milli_diff);
-        console.log(sec_diff);
-        console.log(min_diff);
-        console.log(hour_diff);
-        console.log(day_diff);
-        console.log(month_diff);
-        console.log(year_diff);*/
-
-        display_elapsed.innerHTML = `<br><b>DOB entered is:</b> ${input_date}<br><br>
-        <b>Time elapsed since your birth:</b><br>
-        Years: ${year_diff} <br>
-        Months: ${month_diff} <br>
-        Months: ${day_diff} <br>
-        Hours: ${hour_diff} <br>
-        Minutes: ${min_diff} <br>
-        Seconds: ${sec_diff}  <br>
-        Milli Seconds: ${milli_diff} <br>`;
-
-        display_age.innerHTML = `<br><b>You are :</b>
-        ${year_diff_e} Years, ${month_diff_e} Months, ${day_diff_e} Days, 
-        ${hour_diff_e} Hours, ${min_diff_e} Min., ${sec_diff_e} Sec.,
-        ${milli_diff_e} Milli Sec <b>Old.</b><br><br>
-        <b>Wish you a happy life ahead!!!</b>`;
-
-    }
-
-    else {
-        display_elapsed.innerHTML = "Input date is not valid";
-    }
-
-    result_container.appendChild(display_elapsed);
-    result_container.appendChild(display_age);
-    zodiac();
-    //console.log(results_container);
-}
-
 
 function zodiac() {
     var input = document.getElementById('dob').value
@@ -237,3 +149,90 @@ function zodiac() {
     result_container.append(zodaic_div);
     //console.log(result_container);
 }
+
+function date_calc() {
+    var input = document.getElementById('dob').value
+    //console.log(input);
+    //console.log(Date.parse(input));
+
+    if (Date.parse(input)) {
+        var input_date = new Date(input);
+        var current_date = new Date();
+        var milli_diff = current_date.getTime() - input_date.getTime();
+        var sec_diff = Math.floor(milli_diff / 1000);
+        var min_diff = Math.floor(sec_diff / 60);
+        var hour_diff = Math.floor(min_diff / 60);
+        var day_diff = Math.floor(hour_diff / 24);
+        var month_diff = (current_date.getFullYear() - input_date.getFullYear()) * 12 + current_date.getMonth() - input_date.getMonth();
+        var year_diff = current_date.getFullYear() - input_date.getFullYear();
+
+        var milli_diff_e = current_date.getMilliseconds() - input_date.getMilliseconds();
+        var sec_diff_e = current_date.getSeconds() - input_date.getSeconds();
+        var min_diff_e = negative_min_diff();
+        var hour_diff_e = negative_hour_diff();
+        var day_diff_e = current_date.getDate() - input_date.getDate();
+        var month_diff_e = current_date.getMonth() - input_date.getMonth();
+        var year_diff_e = current_date.getFullYear() - input_date.getFullYear();
+
+        function negative_hour_diff() {
+            if ((current_date.getHours() - input_date.getHours()) < 0) {
+                var new_hour_diff = 24 + (current_date.getHours() - input_date.getHours())
+                return new_hour_diff
+            }
+
+            else {
+                var new_hour_diff = (current_date.getHours() - input_date.getHours())
+                return new_hour_diff
+            }
+        }
+
+        function negative_min_diff() {
+            if ((current_date.getMinutes() - input_date.getMinutes()) < 0) {
+                var new_min_diff = 60 + (current_date.getMinutes() - input_date.getMinutes())
+                return new_min_diff
+            }
+
+            else {
+                var new_min_diff = (current_date.getMinutes() - input_date.getMinutes())
+                return new_min_diff
+            }
+        }
+
+        /*console.log(input_date);
+        console.log(current_date);
+        console.log(milli_diff);
+        console.log(sec_diff);
+        console.log(min_diff);
+        console.log(hour_diff);
+        console.log(day_diff);
+        console.log(month_diff);
+        console.log(year_diff);*/
+
+        display_elapsed.innerHTML = `<br><b>DOB entered is:</b> ${input_date}<br><br>
+        <b>Time elapsed since your birth:</b><br>
+        Years: ${year_diff} <br>
+        Months: ${month_diff} <br>
+        Days: ${day_diff} <br>
+        Hours: ${hour_diff} <br>
+        Minutes: ${min_diff} <br>
+        Seconds: ${sec_diff}  <br>
+        Milli Seconds: ${milli_diff} <br>`;
+
+        display_age.innerHTML = `<br><b style="color:blueviolet">You have lived :</b>
+        ${year_diff_e} Years, ${month_diff_e} Months, ${day_diff_e} Days, 
+        ${hour_diff_e} Hours, ${min_diff_e} Min., ${sec_diff_e} Sec.,
+        ${milli_diff_e} Milli Sec <b style="color:blueviolet">on this beautiful planet</b><br><br>
+        <b style="color: #1C4E80">Wish you a happy life ahead!!!</b>`;
+
+    }
+
+    else {
+        display_elapsed.innerHTML = "Input date is not valid";
+    }
+
+    result_container.appendChild(display_elapsed);
+    result_container.appendChild(display_age);
+    //console.log(results_container);
+}
+
+

@@ -17,14 +17,15 @@ const port = process.env.PORT || 8080;
 //app.use("/styles", express.static(__dirname + '/public/stylesheets'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 //app.use("/images", express.static(__dirname + '/public/images'));
-app.use('/', router);
+//Use below files
 app.use(express.static(__dirname + '/index.html'));
-app.use(express.static(__dirname + '/age.css'));
 app.use(express.static(__dirname + '/age.js'));
+app.use(express.static(__dirname + '/age.css'));
 
 //Serve entry html page of the application
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+router.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+  //__dirname : It will resolve to path folder called above.
 });
 
 //Serve hello world
@@ -32,6 +33,7 @@ app.get('/', function (req, res) {
     res.send('Hello World');
 });*/
 
-//Listen on specified port
+//add router and listener
+app.use('/', router);
 app.listen(port);
 console.log(`Bhaskara Express App server Running on ${host}:${port}`);
