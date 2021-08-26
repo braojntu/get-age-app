@@ -17,13 +17,12 @@ const port = process.env.PORT || 8080;
 //app.use("/styles", express.static(__dirname + '/public/stylesheets'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 //app.use("/images", express.static(__dirname + '/public/images'));
-//Use below files
-app.use(express.static(__dirname + '/index.html'));
-app.use(express.static(__dirname + '/age.js'));
-app.use(express.static(__dirname + '/age.css'));
+//Use below 
+
+app.use(express.static(__dirname + '/public'));
 
 //Serve entry html page of the application
-router.get('/', function (req, res) {
+router.get('/public', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
   //__dirname : It will resolve to path folder called above.
 });

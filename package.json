@@ -1,14 +1,17 @@
 {
-    "name": "calculate-age",
-    "version": "1.0.0",
-    "description": "Calulates Age and Show Zodaic sign",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "author": "bhaskara369",
-    "license": "Apache-2.0",
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "calculate-age",
+  "version": "1.0.0",
+  "description": "Calulates Age and Show Zodaic sign",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "author": "bhaskara369",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
